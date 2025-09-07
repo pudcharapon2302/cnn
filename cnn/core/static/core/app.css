@@ -1,0 +1,4 @@
+.container { max-width: 820px; margin: 2rem auto; font-family: ui-sans-serif, system-ui; }
+#train-log { border: 1px solid #ddd; padding: .75rem; height: 220px; overflow: auto; background: #fafafa; }
+#pad { border: 1px solid #ccc; background: #fff; cursor: crosshair; }
+.actions { margin-top: .5rem; display: flex; gap: .5rem; }

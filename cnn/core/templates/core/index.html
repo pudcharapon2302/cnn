@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>MNIST Live</title>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <!-- เปิดส่วนขยาย SSE ของ htmx -->
+  <script src="https://unpkg.com/htmx.org/dist/ext/sse.js"></script>
+  <link rel="stylesheet" href="/static/core/app.css">
+</head>
+<body class="container">
+  <h1>SimpleCNN on MNIST</h1>
+
+  <!-- ปุ่มเริ่มเทรน -->
+  <button id="btn-train"
+          hx-post="/train/start/"
+          hx-swap="none">Start Training</button>
+
+  <!-- กล่อง log รับสตรีม SSE -->
+  <div id="train-log"
+       hx-ext="sse"
+       sse-connect="/train/stream/"
+       sse-swap="message">
+    <!-- ข้อความใหม่จะ append เข้ามา -->
+  </div>
+
+  <hr>
+
+  <h2>Draw a digit</h2>
+  <canvas id="pad" width="280" height="280"></canvas>
+  <div class="actions">
+    <button id="btn-clear">Clear</button>
+    <button id="btn-predict">Predict</button>
+  </div>
+  <pre id="result">pred: -, conf: -</pre>
+
+  <script src="/static/core/app.js"></script>
+</body>
+</html>
