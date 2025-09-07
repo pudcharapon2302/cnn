@@ -20,7 +20,7 @@ class TrainingManager:
 
     def _put(self, d): self._q.put(json.dumps(d))
 
-    def _loop(self, epochs=2, batch=64, lr=1e-3):
+    def _loop(self, epochs=2, batch=64, lr=0.001):
         try:
             self._put({"status":"starting", "device": str(self.device)})
 

@@ -16,7 +16,7 @@ def index(request):
 
 @csrf_exempt
 def start_training(request):
-    started = manager.start(epochs=8, batch=128, lr=1e-3)
+    started = manager.start(epochs=8, batch=128, lr=0.001)
     return JsonResponse({"started": started})
 
 def train_stream(request):
